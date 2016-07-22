@@ -53,6 +53,10 @@ end_year = int(end_year)
 print_start_year = str(start_year)
 print_end_year = str(end_year)
 
-while start_year <= end_year:
-  get_climate_data(station, start_year, print_start_year, print_end_year)
-  start_year +=1
+# Download the data, unless the end year is before the start year. If the end year is before the start year, print an error.
+if end_year < start_year:
+  print "ERROR: The end year you entered was before the start year. The end year must be greater than or equal to the start year."
+else:
+  while start_year <= end_year:
+    get_climate_data(station, start_year, print_start_year, print_end_year)
+    start_year +=1
